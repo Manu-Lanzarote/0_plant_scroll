@@ -1,25 +1,33 @@
+import { Typography } from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles'
 import Cookies from './politicas/Cookies';
 import Legal from './politicas/Legal';
 import Privacidad from './politicas/Privacidad';
-// import fondoFooter from '../imagenes/fondo_footer.jpg'
+
+//Enrutamiento
+import {BrowserRouter as Router, Link} from 'react-router-dom'
 
 //Estilos CSS
 const useStyles = makeStyles(theme => ({
     footer: {
         textAlign: 'center',
-        backgroundColor: '#FBFBFB',
         padding: theme.spacing(1.5),
         [theme.breakpoints.up('sm')]:{
-        paddingLeft: theme.spacing(28),
-    },
-        // backgroundImage: `url(${fondoFooter})`,
-        // backgroundRepeat: 'no-repeat',
-        // backgroundSize: 'cover',
+        paddingLeft: theme.spacing(10),
+        },
+        backgroundColor: '#111111',
     },
     politicas: {
         display: 'flex',
         justifyContent: 'center',
+        
+    },
+    enlaces: {
+        textDecoration: 'none',
+        color: '#dea54c',
+        fontSize: '0.9rem',
+        padding: '3px 6px',
+
     },
   }))
 
@@ -27,14 +35,16 @@ const Footer = () => {
     const classes = useStyles();
     return (
         <div className={classes.footer}>
-                <p style={{fontSize: '0.8rem'}}>
+                <Typography variant="body2" color="primary">
                     ©2021 Lesmes Abogados - Todos los derechos reservados
-                </p>
-                <div className={classes.politicas}>
-                    <Legal/>
-                    <Cookies/>
-                    <Privacidad/>
-                </div>
+                </Typography>
+                <Router>
+                    <div className={classes.politicas}>
+                        <Link to='/aviso_legal' className={classes.enlaces}><Legal/></Link>
+                        <Link to='/politica_de_cookies'  className={classes.enlaces}><Cookies/></Link>
+                        <Link to='/politica_de_privacidad'  className={classes.enlaces}><Privacidad/> </Link>
+                    </div>
+                </Router>
         </div>
     )
 }

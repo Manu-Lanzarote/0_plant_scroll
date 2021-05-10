@@ -4,17 +4,27 @@ import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
+
+//Iconos
 import PhoneInTalkIcon from '@material-ui/icons/PhoneInTalk';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Lista from './Lista';
 
-import escudo from '../imagenes/escudo_aviles.png'
-import logo from '../imagenes/logo_lesmes_azul.png'
+import logo from '../imagenes/logo_lesmes_naranja.png'
 
-const drawerWidth = 220;
+//importación del scroll. Cambio al nombre al componente Link como LinkScroll por que este nombre coincide con el componente Link de react-router
+import {Link as LinkScroll} from 'react-scroll'
+
+//Importación de los componentes para hacer el enrutamiento
+import {BrowserRouter as Router, Link} from 'react-router-dom'
+
+const drawerWidth = 225;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,9 +37,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appBar: {
-    backgroundColor: '#FBFBFB',
+    backgroundColor: '#111111',
     // Color de la bandera de Avilés
-    color: '#0446ad',
+    // color: '#0446ad',
+    color: '#dea54c',
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
@@ -47,15 +58,17 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
    tipografia: {
-    color: '#0446ad',
+    color: '#dea54c',
+    fontSize: '1.2rem',
     fontWeight: '400',
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
   },
   telefono: {
-    color: '#0446ad',
+    color: '#dea54c',
     textDecoration: 'none',
+    fontSize: '1.1rem',
     fontWeight: '400',
     [theme.breakpoints.down('xs')]: {
       display: 'none',
@@ -65,8 +78,8 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: '#FBFBFB',
-    boxShadow: '3px 0px 3px 0px rgba(50, 50, 50, 0.3)',
+    backgroundColor: '#111111',
+    boxShadow: '2px 0px 2px 0px rgba(0, 50, 50, 0.7)',
   },
   content: {
     flexGrow: 1,
@@ -86,23 +99,29 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   footer: {
-    paddingTop: '30px',
-    color: '#0446ad',
+    color: '#dea54c',
     textAlign: 'center',
-    padding: '10px',
+    padding: '11px',
   },
   phone: {
     border: '1px solid',
     display: 'inline-block',
-    padding: '18px',
+    padding: '0.7rem',
     borderRadius: '50%',
-    backgroundColor: '#0446ad',
-    color: 'white',
-    width:'4rem',
+    backgroundColor: '#dea54c',
+    color: 'black',
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
   },
+  redes: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  iconos_redes: {
+    color: '#dea54c',
+    padding: '1.2rem 0.5rem',
+  }
 }));
 
 function ResponsiveDrawer(props) {
@@ -119,20 +138,24 @@ function ResponsiveDrawer(props) {
     <div>
       <div className={classes.toolbar} />
       <Divider />
-        <img src={escudo} alt="Escudo de Avilés" className={classes.escudo}/>
       <Lista/>
       <Divider/>
       <div className={classes.footer}>
         <h3>LESMES ABOGADOS</h3>
-        <br/>
         <address>C/ Francisco Orejas 1, 1º Izqda. CP:33401 Avilés (Asturias)</address>
         <p>Tfno: 985 561 169</p>
-        <br/>
         <p>info@lesmesabogados.com</p>
-        <br/><br/>
+        <br/>
             <a href="tel:+34985561169" className={classes.phone}>
-              <PhoneInTalkIcon />
+              <PhoneInTalkIcon style={{fontSize: '2rem'}}/>
             </a>
+      </div>
+      <br/>
+      <Divider/>
+      <div className={classes.redes}>
+        <a href='https://www.facebook.com' target='_blank' rel='noreferrer' className={classes.iconos_redes}><FacebookIcon fontSize="large"/></a>
+        <a href='https://www.instagram.com' target='_blank' rel='noreferrer' className={classes.iconos_redes}><InstagramIcon fontSize="large"/></a>
+        <a href='https://www.youtube.com' target='_blank' rel='noreferrer' className={classes.iconos_redes}><YouTubeIcon fontSize="large"/></a>
       </div>
     </div>
   );
@@ -150,12 +173,24 @@ function ResponsiveDrawer(props) {
             onClick={handleDrawerToggle}
             className={classes.menuButton}
           >
-            <MenuIcon style={{ fontSize: 30 }}/>
+            <MenuIcon style={{ fontSize: 40 }}/>
           </IconButton>
-            <img src={logo} alt='Logotipo Lesmes Abogados' className={classes.logo}/>
-            <span className={classes.tipografia}>SU BUFETE DE ABOGADOS EN AVILÉS</span>
+          {/* Link: Enlace para hacer smooth scroll en el logotipo de la barra de navegación*/}
+          <LinkScroll
+                    activeClass="active"
+                    to="sec1"
+                    spy={true}
+                    smooth={true}
+                    offset={-55}
+                    duration={600}
+                >
+                  <Router>
+                    <Link to='/'><img src={logo} alt='Logotipo Lesmes Abogados' className={classes.logo}/>
+                    </Link>
+                  </Router>
+            </LinkScroll>
+            <span className={classes.tipografia}>AVILÉS - ASTURIAS</span>
             <a href="tel:+34985561169" className={classes.telefono}>Tfno: 985 561 169</a>
-            
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">

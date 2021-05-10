@@ -6,6 +6,9 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
+//Enrutamiento. Quiero ir al home cuando pulse al botón cerrar.
+import {BrowserRouter as Router, Link} from 'react-router-dom'
+
 function Cookies() {
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState("paper");
@@ -31,7 +34,7 @@ function Cookies() {
 
   return (
     <div>
-      <Button onClick={handleClickOpen("paper")} style={{fontSize: '0.65rem'}}>Política de Cookies</Button>
+      <span onClick={handleClickOpen("paper")} style={{fontSize: '0.9rem'}} color='white'>Política de Cookies</span>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -100,9 +103,14 @@ function Cookies() {
             </DialogContentText>
             </DialogContent>
             <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cerrar
-          </Button>
+          {/* Enrutamiento. Quiero quel al pulsar Cerrar el enlace cambie de /politica_de-cookies a '/' */}
+          <Router>
+            <Link to='/'>
+              <Button onClick={handleClose} color="primary">
+                Cerrar
+              </Button>
+            </Link>
+          </Router>
         </DialogActions>
       </Dialog>
     </div>

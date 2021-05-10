@@ -10,8 +10,11 @@ import HowToRegIcon from '@material-ui/icons/HowToReg';
 import GavelIcon from '@material-ui/icons/Gavel';
 import PhoneInTalkIcon from '@material-ui/icons/PhoneInTalk';
 
-//importación del scroll
-import {Link, animateScroll as scroll} from 'react-scroll'
+//importación del scroll. Cambio al nombre al componente Link como LinkScroll por que este nombre coincide con el componente Link de react-router
+import {Link as LinkScroll} from 'react-scroll'
+
+//Importación de los componentes para hacer el enrutamiento
+import {BrowserRouter as Router, Link} from 'react-router-dom'
 
 import {makeStyles} from '@material-ui/core/styles'
 
@@ -19,50 +22,117 @@ import {makeStyles} from '@material-ui/core/styles'
 //Estilos CSS
 const useStyles = makeStyles(theme => ({
     list: {
-        color: '#0446ad',
+        color: '#c49141',
         paddingLeft: '0.7rem',
+    },
+    enlace: {
+        color: '#c49141',
+        textDecoration: 'none',
     },
   }))
 
 const Lista = () => {
     const classes = useStyles();
     return (
-        <>
+        <Router>
             <List component="nav" aria-label="main mailbox folders" className={classes.list} >
-                <Link to="">
+                {/* Link: Enlace para hacer smooth scroll */}
+                    <LinkScroll
+                        activeClass="active"
+                        to="sec1"
+                        spy={true}
+                        smooth={true}
+                        offset={-55}
+                        duration={600}
+                    >
+                        <Link to='/' className={classes.enlace}>
+                        <ListItem button>
+                            <ListItemIcon className={classes.list} id="seccion1">
+                                <HomeIcon/>
+                            </ListItemIcon >
+                            <ListItemText primary="Home" />
+                            </ListItem>
+                        </Link>
+                    </LinkScroll>
+                {/* Link: Enlace para hacer smooth scroll */}
+                <LinkScroll
+                    activeClass="active"
+                    to="sec2"
+                    spy={true}
+                    smooth={true}
+                    offset={-55}
+                    duration={600}
+                >
+                {/* Enrutamiento */}
+                <Link to='/seccion2' className={classes.enlace}>
+                   <ListItem button>
+                        <ListItemIcon className={classes.list} id="seccion2">
+                            <AccountBalanceIcon/>
+                         </ListItemIcon>
+                    <ListItemText primary="Sección 2"/>
+                    </ListItem> 
+                </Link>
+                </LinkScroll>
+                {/* Link: Enlace para hacer smooth scroll */}
+                <LinkScroll
+                    activeClass="active"
+                    to="sec3"
+                    spy={true}
+                    smooth={true}
+                    offset={-55}
+                    duration={600}
+                >
+                {/* Enrutamiento */}
+                <Link to='/seccion3' className={classes.enlace}>
                     <ListItem button>
-                        <ListItemIcon className={classes.list} id="seccion1">
-                            <HomeIcon/>
-                        </ListItemIcon >
-                        <ListItemText primary="Sección 1"/>
+                        <ListItemIcon className={classes.list} id="seccion3">
+                            <HowToRegIcon/>
+                        </ListItemIcon>
+                    <ListItemText primary="Sección 3"/>
                     </ListItem>
                 </Link>
-                <ListItem button>
-                    <ListItemIcon className={classes.list} id="seccion2">
-                        <AccountBalanceIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="Sección 2"/>
-                </ListItem>
-                <ListItem button>
-                    <ListItemIcon className={classes.list} id="seccion3">
-                        <HowToRegIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="Sección 3"/>
-                </ListItem>
-                <ListItem button>
-                    <ListItemIcon className={classes.list} id="seccion4">
-                        <GavelIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="Sección 4"/>
-                </ListItem>
-                <ListItem button>
-                    <ListItemIcon className={classes.list} id="seccion5">
-                        <PhoneInTalkIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="Sección 5"/>
-                </ListItem>
+                </LinkScroll>
+                {/* Link: Enlace para hacer smooth scroll */}
+                <LinkScroll
+                    activeClass="active"
+                    to="sec4"
+                    spy={true}
+                    smooth={true}
+                    offset={-55}
+                    duration={600}
+                >
+                {/* Enrutamiento */}
+                <Link to='/seccion4' className={classes.enlace}>
+                    <ListItem button>
+                        <ListItemIcon className={classes.list} id="seccion4">
+                            <GavelIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary="Sección 4"/>
+                    </ListItem>
+                </Link>
+                </LinkScroll>
+                {/* Link: Enlace para hacer smooth scroll */}
+                <LinkScroll
+                    activeClass="active"
+                    to="sec5"
+                    spy={true}
+                    smooth={true}
+                    offset={-55}
+                    duration={600}
+                >   
+                {/* Enrutamiento */}
+                <Link to='/contacto' className={classes.enlace}>
+                    <ListItem button>
+                        <ListItemIcon className={classes.list} id="seccion5">
+                            <PhoneInTalkIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary="Contacto"/>
+                    </ListItem>
+                </Link>
+                </LinkScroll>
+                
             </List>
-        </>
+        </Router>
     )
 }
 

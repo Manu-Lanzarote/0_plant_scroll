@@ -1,3 +1,4 @@
+import { Typography } from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles'
 
 const useStyles = makeStyles ({
@@ -10,10 +11,11 @@ const useStyles = makeStyles ({
 const Seccion3 = () => {
     const classes= useStyles();
     return (
-        <div className={classes.fondo}>  
-            <h1>
+        //id para llamarlo desde Lista.jsx para conseguir el scroll
+        <div className={classes.fondo} id='sec3'>  
+            <Typography variant="h1">
                 Seccion 3
-            </h1>     
+            </Typography>
         </div>
     )
 }

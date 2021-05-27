@@ -2,7 +2,7 @@ import { Typography } from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles'
 
 //Importación de imágenes
-import imagen from './pen-731199_1280.jpg'
+import imagen from './../../imagenes/imagen1.jpg'
 
 const useStyles = makeStyles ({
     seccion: {
@@ -11,11 +11,15 @@ const useStyles = makeStyles ({
         backgroundImage: `url(${imagen})`,
     },
     main: {
+        width: '100%',
         height: '100%',
-        paddingTop: '15%',
-        paddingLeft: '20%',
-        paddingRight: '10%',
-        color: 'white',
+        paddingLeft: '15%',
+        paddingRight: '15%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        overflow: 'hidden',
+        position: 'relative',
     },
     caja: {
         backgroundColor: 'rgba(0, 0, 0, 0.8)',

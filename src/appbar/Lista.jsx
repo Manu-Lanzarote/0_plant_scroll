@@ -13,8 +13,8 @@ import PhoneInTalkIcon from '@material-ui/icons/PhoneInTalk';
 //importación del scroll. Cambio al nombre al componente Link como LinkScroll por que este nombre coincide con el componente Link de react-router
 import {Link as LinkScroll} from 'react-scroll'
 
-//Importación de los componentes para hacer el enrutamiento
-import {BrowserRouter as Router, Link} from 'react-router-dom'
+//Importación de Link para hacer el enrutamiento. No necesito importar el componente principal, BrowserRouter as Router aquí ya que lo tengo importado y envolviendo App en index.js
+import {NavLink} from 'react-router-dom'
 
 import {makeStyles} from '@material-ui/core/styles'
 
@@ -22,19 +22,15 @@ import {makeStyles} from '@material-ui/core/styles'
 //Estilos CSS
 const useStyles = makeStyles(theme => ({
     list: {
-        color: '#c49141',
+        color: '#f6c14c',
         paddingLeft: '0.7rem',
-    },
-    enlace: {
-        color: '#c49141',
-        textDecoration: 'none',
     },
   }))
 
 const Lista = () => {
     const classes = useStyles();
     return (
-        <Router>
+        <>
             <List component="nav" aria-label="main mailbox folders" className={classes.list} >
                 {/* Link: Enlace para hacer smooth scroll */}
                     <LinkScroll
@@ -45,14 +41,14 @@ const Lista = () => {
                         offset={-55}
                         duration={600}
                     >
-                        <Link to='/' className={classes.enlace}>
+                        <NavLink exact activeClassName='active' to='/' className={classes.enlace}>
                         <ListItem button>
                             <ListItemIcon className={classes.list} id="seccion1">
                                 <HomeIcon/>
                             </ListItemIcon >
                             <ListItemText primary="Home" />
                             </ListItem>
-                        </Link>
+                        </NavLink>
                     </LinkScroll>
                 {/* Link: Enlace para hacer smooth scroll */}
                 <LinkScroll
@@ -64,14 +60,14 @@ const Lista = () => {
                     duration={600}
                 >
                 {/* Enrutamiento */}
-                <Link to='/seccion2' className={classes.enlace}>
+                <NavLink exact activeClassName='active' to='/seccion2' className={classes.enlace}>
                    <ListItem button>
                         <ListItemIcon className={classes.list} id="seccion2">
                             <AccountBalanceIcon/>
                          </ListItemIcon>
                     <ListItemText primary="Sección 2"/>
-                    </ListItem> 
-                </Link>
+                    </ListItem>
+                </NavLink>
                 </LinkScroll>
                 {/* Link: Enlace para hacer smooth scroll */}
                 <LinkScroll
@@ -83,14 +79,14 @@ const Lista = () => {
                     duration={600}
                 >
                 {/* Enrutamiento */}
-                <Link to='/seccion3' className={classes.enlace}>
+                <NavLink exact activeClassName='active' to='/seccion3' className={classes.enlace}>
                     <ListItem button>
                         <ListItemIcon className={classes.list} id="seccion3">
                             <HowToRegIcon/>
                         </ListItemIcon>
                     <ListItemText primary="Sección 3"/>
                     </ListItem>
-                </Link>
+                </NavLink>
                 </LinkScroll>
                 {/* Link: Enlace para hacer smooth scroll */}
                 <LinkScroll
@@ -102,14 +98,14 @@ const Lista = () => {
                     duration={600}
                 >
                 {/* Enrutamiento */}
-                <Link to='/seccion4' className={classes.enlace}>
+                <NavLink exact activeClassName='active' to='/seccion4' className={classes.enlace}>
                     <ListItem button>
                         <ListItemIcon className={classes.list} id="seccion4">
                             <GavelIcon/>
                         </ListItemIcon>
                         <ListItemText primary="Sección 4"/>
                     </ListItem>
-                </Link>
+                </NavLink>
                 </LinkScroll>
                 {/* Link: Enlace para hacer smooth scroll */}
                 <LinkScroll
@@ -121,18 +117,17 @@ const Lista = () => {
                     duration={600}
                 >   
                 {/* Enrutamiento */}
-                <Link to='/contacto' className={classes.enlace}>
+                <NavLink exact activeClassName='active' to='/contacto' className={classes.enlace}>
                     <ListItem button>
                         <ListItemIcon className={classes.list} id="seccion5">
                             <PhoneInTalkIcon/>
                         </ListItemIcon>
                         <ListItemText primary="Contacto"/>
                     </ListItem>
-                </Link>
+                </NavLink>
                 </LinkScroll>
-                
             </List>
-        </Router>
+        </>
     )
 }
 

@@ -33,7 +33,7 @@ function Legal() {
   }, [open]);
 
   return (
-    <div>
+    <>
       <span onClick={handleClickOpen("paper")} style={{fontSize: '0.9rem'}} color='white'>Aviso Legal</span>
       <Dialog
         open={open}
@@ -97,7 +97,7 @@ function Legal() {
           </Router>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 }
 

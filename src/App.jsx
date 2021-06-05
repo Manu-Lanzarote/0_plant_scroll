@@ -67,7 +67,7 @@ function App() {
           <ResponsiveDrawer/>
           <div className={classes.content} >
               <div className={classes.toolbar}/>
-                  <Hero slides={dataSlider} />
+                  {/* <Hero slides={dataSlider} /> */}
                   <Seccion1/>
                   <Seccion2/>
                   <Seccion3/>
@@ -76,7 +76,6 @@ function App() {
                   {/* <ListaPrueba/> */}
                   {/* CHEQUEAR POR QUE EL COMPONENTE PARTÍCULAS ME SOBREPASA EL MARGEN DE LA WEB Y ME ROMPE EL RESPONSIVE. Comparar con otros componentes  */}
                   {/* <Particles404/> */}
-                  <Video404/>
                 <footer>
                   <Footer/>
                 </footer>

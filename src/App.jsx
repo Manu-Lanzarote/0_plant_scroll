@@ -26,16 +26,7 @@ import Seccion3 from './components/seccion3/Seccion3';
 import Seccion4 from './components/seccion4/Seccion4';
 import Seccion5 from './components/seccion5/Seccion5';
 
-//Componente error 404 con fondo de partículas que por el momento no puedo usar en este proyecto por que no veo como hacerlo con react-scroll.. 
-// import Particles404 from './components/error404/Particles404'
-
 import Footer from './footer/Footer';
-import Video404 from './components/error404/Video404';
-import Hero from './components/hero/Hero';
-
-//Importación del objeto dataSlider que contiene los sliders
-import { dataSlider } from './components/hero/dataSlider';
-// import ListaPrueba from './components/prueba/ListaPrueba';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,15 +58,11 @@ function App() {
           <ResponsiveDrawer/>
           <div className={classes.content} >
               <div className={classes.toolbar}/>
-                  {/* <Hero slides={dataSlider} /> */}
                   <Seccion1/>
                   <Seccion2/>
                   <Seccion3/>
                   <Seccion4/>
                   <Seccion5/>
-                  {/* <ListaPrueba/> */}
-                  {/* CHEQUEAR POR QUE EL COMPONENTE PARTÍCULAS ME SOBREPASA EL MARGEN DE LA WEB Y ME ROMPE EL RESPONSIVE. Comparar con otros componentes  */}
-                  {/* <Particles404/> */}
                 <footer>
                   <Footer/>
                 </footer>

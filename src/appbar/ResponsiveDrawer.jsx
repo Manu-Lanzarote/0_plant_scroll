@@ -16,7 +16,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Lista from './Lista';
 
-import logo from '../imagenes/logo_lesmes_naranja.png'
+import logo from '../imagenes/logo_lesmes_blanco.png'
 
 //importación del scroll. Cambio al nombre al componente Link como LinkScroll por que este nombre coincide con el componente Link de react-router
 import {Link as LinkScroll} from 'react-scroll'
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#111111',
     // Color de la bandera de Avilés
     // color: '#0446ad',
-    color: '#dea54c',
+    color: '#ffffff',
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
    tipografia: {
-    color: '#dea54c',
+    color: '#ffffff',
     fontSize: '1.2rem',
     fontWeight: '400',
     [theme.breakpoints.down('sm')]: {
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   telefono: {
-    color: '#dea54c',
+    color: '#ffffff',
     textDecoration: 'none',
     fontSize: '1.1rem',
     fontWeight: '400',
@@ -85,10 +85,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
-  escudo: {
-    width: '4rem',
-    margin: '5px 78px',
-  },
   logo: {
     height: '3.5rem',
     // objectFit nos asegura que la imagen no se va a deformar
@@ -99,17 +95,17 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   footer: {
-    color: '#dea54c',
+    color: '#ffffff',
     textAlign: 'center',
     padding: '11px',
   },
   phone: {
     border: '1px solid',
     display: 'inline-block',
-    padding: '0.7rem',
+    padding: '8px 10px',
     borderRadius: '50%',
-    backgroundColor: '#dea54c',
-    color: 'black',
+    backgroundColor: '#0446ad',
+    color: 'white',
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
@@ -119,7 +115,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   iconos_redes: {
-    color: '#dea54c',
+    color: '#ffffff',
     padding: '1.2rem 0.5rem',
   }
 }));
@@ -147,7 +143,7 @@ function ResponsiveDrawer(props) {
         <p>info@lesmesabogados.com</p>
         <br/>
             <a href="tel:+34985561169" className={classes.phone}>
-              <PhoneInTalkIcon style={{fontSize: '2rem'}}/>
+              <PhoneInTalkIcon />
             </a>
       </div>
       <br/>

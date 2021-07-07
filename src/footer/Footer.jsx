@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     },
     enlaces: {
         textDecoration: 'none',
-        color: '#dea54c',
+        color: '#ffffffbe',
         fontSize: '0.9rem',
         padding: '3px 6px',
 
@@ -36,7 +36,7 @@ const Footer = () => {
     return (
         <div className={classes.footer}>
                 <Typography variant="body2" color="primary">
-                    ©2021 Lesmes Abogados - Todos los derechos reservados
+                    @{new Date().getFullYear()} Lesmes Abogados - Todos los derechos reservados
                 </Typography>
                 <Router>
                     <div className={classes.politicas}>

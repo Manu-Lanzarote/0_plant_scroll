@@ -13,12 +13,15 @@ import { makeStyles} from '@material-ui/core/styles';
 //Los estilos del paquete cookie-consent no admiten puntos de ruptura, por eso  los creo aquí.
 const useStyles = makeStyles((theme) => ({
     enlace: {
-      color: '#966A43',
+      color: '#ffffffbe',
       textDecoration: 'none',
+      paddingLeft: '4px',
+      display: 'inline-block',
     },
     estilos: {
         [theme.breakpoints.up('sm')]:{
             paddingLeft: theme.spacing(28),
+            paddingTop: theme.spacing(3),
           },
     },
   }));
@@ -38,14 +41,13 @@ const AvisoCookies = () => {
               buttonText='Aceptar'
               expires={365}
               overlay={true}
-              overlayStyle={{backgroundColor: 'rgba(152,97,47,0.8)'}}
-              contentStyle={{margin: '2rem', marginBottom: '2rem'}}
-              buttonStyle={{margin: '2rem', padding: '10px',fontSize: '16px'}}
+              overlayStyle={{backgroundColor: 'transparent'}}
+              contentStyle={{margin: '3px 2rem', marginBottom: '2rem'}}
+              buttonStyle={{margin: ' 1rem 2rem', padding: '10px',fontSize: '16px'}}
               style={{backgroundColor: '#111111'}}
             >
                 <div className={classes.estilos} >
-                <h3>Esta página web usa cookies</h3>
-                Las cookies de este sitio web se usan para personalizar el contenido y los anuncios, ofrecer funciones de redes sociales y analizar el tráfico. Además, compartimos información sobre el uso que haga del sitio web con nuestros partners de redes sociales, publicidad y análisis web, quienes pueden combinarla con otra información que les haya proporcionado o que hayan recopilado a partir del uso que haya hecho de sus servicios.
+                Utilizamos cookies para asegurar que damos la mejor experiencia al usuario en nuestro sitio web. Si continúa utilizando este sitio asumiremos que está de acuerdo.
                 <Router>
                   <Link to='/cookies-page' className={classes.enlace} >
                     <Cookies/>

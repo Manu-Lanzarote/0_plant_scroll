@@ -1,11 +1,9 @@
 /* Enlaces */
 /* Comprobar si puedo dar estilos a los enlaces a través de la cinfiguración del tema en el archivo themeConfig.js */
 a {
-  color: #f6c14c;
+  color: #ffffff;
   text-decoration: none;
 }
-
-/* Color del enlace activo */
-.active {
-  color: #fde1c6;
+a:hover {
+  color: rgb(131, 201, 224);
 }

@@ -22,7 +22,7 @@ import {makeStyles} from '@material-ui/core/styles'
 //Estilos CSS
 const useStyles = makeStyles(theme => ({
     list: {
-        color: '#f6c14c',
+        color: '#ffffff',
         paddingLeft: '0.7rem',
     },
   }))

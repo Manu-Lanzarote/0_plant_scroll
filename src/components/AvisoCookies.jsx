@@ -42,12 +42,12 @@ const AvisoCookies = () => {
               expires={365}
               overlay={true}
               overlayStyle={{backgroundColor: 'transparent'}}
-              contentStyle={{margin: '3px 2rem', marginBottom: '2rem'}}
-              buttonStyle={{margin: ' 1rem 2rem', padding: '10px',fontSize: '16px'}}
+              contentStyle={{margin: '3px 2rem 0', marginBottom: '10x'}}
+              buttonStyle={{margin: '10px 2rem', padding: '10px',fontSize: '16px'}}
               style={{backgroundColor: '#111111'}}
             >
                 <div className={classes.estilos} >
-                Utilizamos cookies para asegurar que damos la mejor experiencia al usuario en nuestro sitio web. Si continúa utilizando este sitio asumiremos que está de acuerdo.
+                Utilizamos cookies propias y de terceros para mejorar nuestros servicios.
                 <Router>
                   <Link to='/cookies-page' className={classes.enlace} >
                     <Cookies/>
